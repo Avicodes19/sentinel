@@ -1,0 +1,1451 @@
+{
+  "currentOperationId": "op-odisha-cyclone",
+  "operations": [
+    {
+      "id": "op-odisha-cyclone",
+      "name": "Cyclone Response",
+      "disasterType": "Cyclone",
+      "hazard": "Severe cyclonic storm",
+      "country": "India",
+      "state": "Odisha",
+      "authority": "State EOC / NDMA",
+      "status": "ACTIVE",
+      "source": "IMD + State EOC",
+      "updated_at": "2026-09-02T13:24:40+05:30",
+      "zones": [
+        {
+          "id": "OD-KEN",
+          "name": "Kendrapara",
+          "adminLevel": "District",
+          "lat": 20.5,
+          "lon": 86.42,
+          "severity": "critical",
+          "priority": 94,
+          "population": 151000,
+          "missing": 126,
+          "rescued": 1502,
+          "critical": 43,
+          "teams": 6,
+          "needs": {
+            "food": {
+              "pct": 18,
+              "required": 24000,
+              "available": 4320,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 22,
+              "required": 80000,
+              "available": 17600,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 12,
+              "required": 4800,
+              "available": 580,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "2h 14m ago",
+          "road": "Partial",
+          "brief": "High population exposure with critical water and medical shortages; several access routes are partially blocked."
+        },
+        {
+          "id": "OD-BAL",
+          "name": "Balasore",
+          "adminLevel": "District",
+          "lat": 21.49,
+          "lon": 86.93,
+          "severity": "critical",
+          "priority": 89,
+          "population": 232000,
+          "missing": 82,
+          "rescued": 1124,
+          "critical": 31,
+          "teams": 5,
+          "needs": {
+            "food": {
+              "pct": 24,
+              "required": 30000,
+              "available": 7200,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 16,
+              "required": 110000,
+              "available": 17600,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 9,
+              "required": 6200,
+              "available": 558,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "3h 02m ago",
+          "road": "Blocked",
+          "brief": "Coastal exposure and flooded access routes are creating severe medical and water-supply pressure."
+        },
+        {
+          "id": "OD-BHA",
+          "name": "Bhadrak",
+          "adminLevel": "District",
+          "lat": 21.06,
+          "lon": 86.5,
+          "severity": "high",
+          "priority": 76,
+          "population": 132000,
+          "missing": 51,
+          "rescued": 894,
+          "critical": 18,
+          "teams": 4,
+          "needs": {
+            "food": {
+              "pct": 61,
+              "required": 22000,
+              "available": 13420,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 54,
+              "required": 66000,
+              "available": 35640,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 47,
+              "required": 3400,
+              "available": 1598,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "1h 32m ago",
+          "road": "Partial",
+          "brief": "Large affected population; supplies are declining while evacuation and relief operations continue."
+        },
+        {
+          "id": "OD-PUR",
+          "name": "Puri",
+          "adminLevel": "District",
+          "lat": 19.81,
+          "lon": 85.83,
+          "severity": "high",
+          "priority": 69,
+          "population": 169000,
+          "missing": 34,
+          "rescued": 740,
+          "critical": 11,
+          "teams": 3,
+          "needs": {
+            "food": {
+              "pct": 70,
+              "required": 24000,
+              "available": 16800,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 58,
+              "required": 85000,
+              "available": 49300,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 61,
+              "required": 4000,
+              "available": 2440,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "1h 48m ago",
+          "road": "Open",
+          "brief": "Moderate supply pressure with active shelter operations and open primary access routes."
+        },
+        {
+          "id": "OD-JAG",
+          "name": "Jagatsinghpur",
+          "adminLevel": "District",
+          "lat": 20.25,
+          "lon": 86.17,
+          "severity": "moderate",
+          "priority": 48,
+          "population": 88000,
+          "missing": 18,
+          "rescued": 512,
+          "critical": 6,
+          "teams": 2,
+          "needs": {
+            "food": {
+              "pct": 82,
+              "required": 14000,
+              "available": 11480,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 74,
+              "required": 44000,
+              "available": 32560,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 80,
+              "required": 2200,
+              "available": 1760,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "3h 41m ago",
+          "road": "Open",
+          "brief": "Stable operations; monitor water levels and replenish routinely."
+        },
+        {
+          "id": "OD-KHU",
+          "name": "Khordha",
+          "adminLevel": "District",
+          "lat": 20.18,
+          "lon": 85.62,
+          "severity": "low",
+          "priority": 24,
+          "population": 104000,
+          "missing": 7,
+          "rescued": 301,
+          "critical": 2,
+          "teams": 1,
+          "needs": {
+            "food": {
+              "pct": 96,
+              "required": 16000,
+              "available": 15360,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 92,
+              "required": 52000,
+              "available": 47840,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 94,
+              "required": 2600,
+              "available": 2444,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "4h 10m ago",
+          "road": "Open",
+          "brief": "Low operational pressure; supplies adequate and response teams are on standby."
+        }
+      ],
+      "people": [
+        {
+          "id": "P-0041",
+          "name": "Kavya Ramachandran",
+          "age": 34,
+          "sex": "F",
+          "status": "missing",
+          "zone": "OD-KEN",
+          "last_seen": "06:12",
+          "needs": [
+            "Insulin",
+            "Wheelchair"
+          ],
+          "logged_at": "06:12"
+        },
+        {
+          "id": "P-0042",
+          "name": "Arjun Mehta",
+          "age": 67,
+          "sex": "M",
+          "status": "critical",
+          "zone": "OD-BAL",
+          "last_seen": "09:00",
+          "needs": [
+            "Cardiac medication",
+            "Oxygen"
+          ],
+          "logged_at": "07:45"
+        },
+        {
+          "id": "P-0043",
+          "name": "Priya Nair",
+          "age": 28,
+          "sex": "F",
+          "status": "rescued",
+          "zone": "OD-KEN",
+          "last_seen": "08:20",
+          "needs": [
+            "Food",
+            "Shelter"
+          ],
+          "logged_at": "08:20"
+        },
+        {
+          "id": "P-0044",
+          "name": "Suresh Kumar",
+          "age": 45,
+          "sex": "M",
+          "status": "missing",
+          "zone": "OD-BHA",
+          "last_seen": "09:00",
+          "needs": [
+            "Unknown"
+          ],
+          "logged_at": "09:00"
+        },
+        {
+          "id": "P-0045",
+          "name": "Meera Pillai",
+          "age": 72,
+          "sex": "F",
+          "status": "critical",
+          "zone": "OD-KEN",
+          "last_seen": "09:30",
+          "needs": [
+            "BP medication",
+            "Food"
+          ],
+          "logged_at": "09:30"
+        },
+        {
+          "id": "P-0046",
+          "name": "Ravi Shankar",
+          "age": 12,
+          "sex": "M",
+          "status": "missing",
+          "zone": "OD-BAL",
+          "last_seen": "10:00",
+          "needs": [
+            "Food",
+            "Water"
+          ],
+          "logged_at": "10:00"
+        },
+        {
+          "id": "P-0047",
+          "name": "Ananya Krishnan",
+          "age": 29,
+          "sex": "F",
+          "status": "rescued",
+          "zone": "OD-PUR",
+          "last_seen": "10:15",
+          "needs": [
+            "Medical checkup"
+          ],
+          "logged_at": "10:15"
+        },
+        {
+          "id": "P-0048",
+          "name": "Vikram Singh",
+          "age": 55,
+          "sex": "M",
+          "status": "rescued",
+          "zone": "OD-BHA",
+          "last_seen": "10:45",
+          "needs": [
+            "Asthma inhaler"
+          ],
+          "logged_at": "10:45"
+        },
+        {
+          "id": "P-0049",
+          "name": "Lakshmi Devi",
+          "age": 81,
+          "sex": "F",
+          "status": "critical",
+          "zone": "OD-BAL",
+          "last_seen": "11:00",
+          "needs": [
+            "Dialysis",
+            "Ambulance"
+          ],
+          "logged_at": "11:00"
+        },
+        {
+          "id": "P-0050",
+          "name": "Mohan Das",
+          "age": 38,
+          "sex": "M",
+          "status": "missing",
+          "zone": "OD-JAG",
+          "last_seen": "11:30",
+          "needs": [
+            "Unknown"
+          ],
+          "logged_at": "11:30"
+        },
+        {
+          "id": "P-0051",
+          "name": "Sunita Rao",
+          "age": 43,
+          "sex": "F",
+          "status": "rescued",
+          "zone": "OD-KEN",
+          "last_seen": "11:45",
+          "needs": [
+            "Food",
+            "Blanket"
+          ],
+          "logged_at": "11:45"
+        },
+        {
+          "id": "P-0052",
+          "name": "Deepak Verma",
+          "age": 61,
+          "sex": "M",
+          "status": "missing",
+          "zone": "OD-BHA",
+          "last_seen": "12:00",
+          "needs": [
+            "Heart medication"
+          ],
+          "logged_at": "12:00"
+        },
+        {
+          "id": "P-0053",
+          "name": "Padma Iyer",
+          "age": 25,
+          "sex": "F",
+          "status": "rescued",
+          "zone": "OD-KHU",
+          "last_seen": "12:15",
+          "needs": [
+            "Food",
+            "Clothing"
+          ],
+          "logged_at": "12:15"
+        },
+        {
+          "id": "P-0054",
+          "name": "Ganesh Patel",
+          "age": 50,
+          "sex": "M",
+          "status": "missing",
+          "zone": "OD-KEN",
+          "last_seen": "12:30",
+          "needs": [
+            "Diabetes medication"
+          ],
+          "logged_at": "12:30"
+        },
+        {
+          "id": "P-0055",
+          "name": "Asha Mathew",
+          "age": 7,
+          "sex": "F",
+          "status": "critical",
+          "zone": "OD-KEN",
+          "last_seen": "12:45",
+          "needs": [
+            "Paediatric care",
+            "Food"
+          ],
+          "logged_at": "12:45"
+        },
+        {
+          "id": "P-0056",
+          "name": "Rajesh Pillai",
+          "age": 58,
+          "sex": "M",
+          "status": "missing",
+          "zone": "OD-BAL",
+          "last_seen": "13:00",
+          "needs": [
+            "Kidney dialysis"
+          ],
+          "logged_at": "13:00"
+        },
+        {
+          "id": "P-0057",
+          "name": "Geeta Sharma",
+          "age": 33,
+          "sex": "F",
+          "status": "rescued",
+          "zone": "OD-JAG",
+          "last_seen": "13:10",
+          "needs": [
+            "Food",
+            "Shelter"
+          ],
+          "logged_at": "13:10"
+        },
+        {
+          "id": "P-0058",
+          "name": "Balachandran N.",
+          "age": 70,
+          "sex": "M",
+          "status": "critical",
+          "zone": "OD-BHA",
+          "last_seen": "13:20",
+          "needs": [
+            "Oxygen cylinder",
+            "Blanket"
+          ],
+          "logged_at": "13:20"
+        }
+      ],
+      "alerts": [
+        {
+          "time": "13:20",
+          "type": "critical",
+          "source": "FIELD",
+          "text": "Balachandran N. (P-0058) critical \u2014 Bhadrak. Oxygen cylinder requested."
+        },
+        {
+          "time": "13:10",
+          "type": "success",
+          "source": "FIELD",
+          "text": "Geeta Sharma (P-0057) rescued \u2014 Jagatsinghpur. Shelter status stable."
+        },
+        {
+          "time": "13:02",
+          "type": "critical",
+          "source": "FIELD",
+          "text": "P-0055 (Asha Mathew, 7F) located by NDRF Alpha. Evacuation in progress."
+        },
+        {
+          "time": "12:48",
+          "type": "info",
+          "source": "RELIEF",
+          "text": "50 food packs dispatched to Kendrapara. ETA 14:15."
+        },
+        {
+          "time": "12:30",
+          "type": "warning",
+          "source": "FIELD",
+          "text": "Ganesh Patel (P-0054) reported missing \u2014 Kendrapara."
+        },
+        {
+          "time": "12:15",
+          "type": "success",
+          "source": "FIELD",
+          "text": "Padma Iyer (P-0053) rescued \u2014 Khordha."
+        },
+        {
+          "time": "11:45",
+          "type": "info",
+          "source": "RELIEF",
+          "text": "Medical kit resupply \u2014 120 kits dispatched to Balasore."
+        }
+      ],
+      "teams": [
+        {
+          "name": "NDRF Alpha",
+          "status": "deployed"
+        },
+        {
+          "name": "SDRF Bravo",
+          "status": "deployed"
+        },
+        {
+          "name": "NDRF Charlie",
+          "status": "standby"
+        }
+      ],
+      "resources": [
+        {
+          "name": "Drinking Water",
+          "stock": 200000,
+          "reserved": 72000,
+          "unit": "L"
+        },
+        {
+          "name": "Food Packets",
+          "stock": 85000,
+          "reserved": 36000,
+          "unit": "packets"
+        },
+        {
+          "name": "Medical Kits",
+          "stock": 12000,
+          "reserved": 6400,
+          "unit": "kits"
+        },
+        {
+          "name": "ORS",
+          "stock": 18000,
+          "reserved": 5000,
+          "unit": "sachets"
+        },
+        {
+          "name": "Blankets",
+          "stock": 24000,
+          "reserved": 8000,
+          "unit": "units"
+        },
+        {
+          "name": "Oxygen Cylinders",
+          "stock": 720,
+          "reserved": 410,
+          "unit": "cylinders"
+        }
+      ],
+      "adminSource": "LGD + Census administrative geography"
+    },
+    {
+      "id": "op-assam-flood",
+      "name": "Monsoon Flood Response",
+      "disasterType": "Flood",
+      "hazard": "River flooding / extreme rainfall",
+      "country": "India",
+      "state": "Assam",
+      "authority": "State EOC / ASDMA",
+      "status": "ACTIVE",
+      "source": "IMD + ASDMA",
+      "updated_at": "2026-09-02T13:20:00+05:30",
+      "zones": [
+        {
+          "id": "AS-DHE",
+          "name": "Dhemaji",
+          "adminLevel": "District",
+          "lat": 27.48,
+          "lon": 94.59,
+          "severity": "critical",
+          "priority": 91,
+          "population": 89000,
+          "missing": 76,
+          "rescued": 621,
+          "critical": 22,
+          "teams": 5,
+          "needs": {
+            "food": {
+              "pct": 19,
+              "required": 18000,
+              "available": 3420,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 21,
+              "required": 62000,
+              "available": 13020,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 14,
+              "required": 3100,
+              "available": 434,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "1h 12m ago",
+          "road": "Blocked",
+          "brief": "River overflow has isolated low-lying settlements; water and medicine stocks are critical."
+        },
+        {
+          "id": "AS-LAK",
+          "name": "Lakhimpur",
+          "adminLevel": "District",
+          "lat": 27.23,
+          "lon": 94.11,
+          "severity": "high",
+          "priority": 77,
+          "population": 104000,
+          "missing": 41,
+          "rescued": 488,
+          "critical": 13,
+          "teams": 4,
+          "needs": {
+            "food": {
+              "pct": 44,
+              "required": 21000,
+              "available": 9240,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 39,
+              "required": 70000,
+              "available": 27300,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 36,
+              "required": 3400,
+              "available": 1224,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "2h 05m ago",
+          "road": "Partial",
+          "brief": "Flooded roads are slowing resupply to several relief centres."
+        },
+        {
+          "id": "AS-DIB",
+          "name": "Dibrugarh",
+          "adminLevel": "District",
+          "lat": 27.47,
+          "lon": 94.91,
+          "severity": "moderate",
+          "priority": 52,
+          "population": 132000,
+          "missing": 17,
+          "rescued": 390,
+          "critical": 7,
+          "teams": 3,
+          "needs": {
+            "food": {
+              "pct": 72,
+              "required": 19000,
+              "available": 13680,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 68,
+              "required": 76000,
+              "available": 51680,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 63,
+              "required": 3500,
+              "available": 2205,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "3h 10m ago",
+          "road": "Open",
+          "brief": "Response stable; continue monitoring river levels and shelter capacity."
+        },
+        {
+          "id": "AS-JOR",
+          "name": "Jorhat",
+          "adminLevel": "District",
+          "lat": 26.75,
+          "lon": 94.22,
+          "severity": "low",
+          "priority": 28,
+          "population": 118000,
+          "missing": 6,
+          "rescued": 202,
+          "critical": 2,
+          "teams": 1,
+          "needs": {
+            "food": {
+              "pct": 91,
+              "required": 12000,
+              "available": 10920,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 88,
+              "required": 58000,
+              "available": 51040,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 92,
+              "required": 2400,
+              "available": 2208,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "4h 02m ago",
+          "road": "Open",
+          "brief": "Low operational pressure; adequate supplies and open access."
+        }
+      ],
+      "people": [
+        {
+          "id": "AS-1001",
+          "name": "Ritu Das",
+          "age": 31,
+          "sex": "F",
+          "status": "missing",
+          "zone": "AS-DHE",
+          "last_seen": "08:14",
+          "needs": [
+            "Food",
+            "Water"
+          ],
+          "logged_at": "08:20"
+        },
+        {
+          "id": "AS-1002",
+          "name": "Nabin Bora",
+          "age": 69,
+          "sex": "M",
+          "status": "critical",
+          "zone": "AS-DHE",
+          "last_seen": "09:02",
+          "needs": [
+            "Oxygen",
+            "Heart medication"
+          ],
+          "logged_at": "09:10"
+        },
+        {
+          "id": "AS-1003",
+          "name": "Mitali Saikia",
+          "age": 24,
+          "sex": "F",
+          "status": "rescued",
+          "zone": "AS-LAK",
+          "last_seen": "10:12",
+          "needs": [
+            "Shelter"
+          ],
+          "logged_at": "10:20"
+        },
+        {
+          "id": "AS-1004",
+          "name": "Biren Gogoi",
+          "age": 47,
+          "sex": "M",
+          "status": "missing",
+          "zone": "AS-LAK",
+          "last_seen": "11:03",
+          "needs": [
+            "Unknown"
+          ],
+          "logged_at": "11:10"
+        },
+        {
+          "id": "AS-1005",
+          "name": "Juri Phukan",
+          "age": 8,
+          "sex": "F",
+          "status": "critical",
+          "zone": "AS-DIB",
+          "last_seen": "11:45",
+          "needs": [
+            "Paediatric care"
+          ],
+          "logged_at": "11:50"
+        },
+        {
+          "id": "AS-1006",
+          "name": "Ranjit Nath",
+          "age": 54,
+          "sex": "M",
+          "status": "rescued",
+          "zone": "AS-JOR",
+          "last_seen": "12:03",
+          "needs": [
+            "Food",
+            "Blanket"
+          ],
+          "logged_at": "12:05"
+        }
+      ],
+      "alerts": [
+        {
+          "time": "13:18",
+          "type": "critical",
+          "source": "FIELD",
+          "text": "Dhemaji water stock below critical threshold."
+        },
+        {
+          "time": "13:04",
+          "type": "success",
+          "source": "FIELD",
+          "text": "Mitali Saikia verified rescued at Lakhimpur shelter."
+        },
+        {
+          "time": "12:48",
+          "type": "warning",
+          "source": "FIELD",
+          "text": "Biren Gogoi remains unaccounted for in Lakhimpur."
+        },
+        {
+          "time": "12:20",
+          "type": "info",
+          "source": "RELIEF",
+          "text": "Water tanker dispatched to Dhemaji."
+        }
+      ],
+      "teams": [
+        {
+          "name": "NDRF Delta",
+          "status": "deployed"
+        },
+        {
+          "name": "SDRF Assam-2",
+          "status": "deployed"
+        },
+        {
+          "name": "Civil Defence-4",
+          "status": "standby"
+        }
+      ],
+      "resources": [
+        {
+          "name": "Drinking Water",
+          "stock": 150000,
+          "reserved": 60000,
+          "unit": "L"
+        },
+        {
+          "name": "Food Packets",
+          "stock": 62000,
+          "reserved": 28000,
+          "unit": "packets"
+        },
+        {
+          "name": "Medical Kits",
+          "stock": 9000,
+          "reserved": 4200,
+          "unit": "kits"
+        },
+        {
+          "name": "ORS",
+          "stock": 14000,
+          "reserved": 3200,
+          "unit": "sachets"
+        },
+        {
+          "name": "Blankets",
+          "stock": 17000,
+          "reserved": 6000,
+          "unit": "units"
+        },
+        {
+          "name": "Oxygen Cylinders",
+          "stock": 480,
+          "reserved": 260,
+          "unit": "cylinders"
+        }
+      ],
+      "adminSource": "LGD + Census administrative geography"
+    },
+    {
+      "id": "op-sikkim-landslide",
+      "name": "Monsoon Landslide Response",
+      "disasterType": "Landslide",
+      "hazard": "Rain-triggered landslides",
+      "country": "India",
+      "state": "Sikkim",
+      "authority": "State EOC / Sikkim SDMA",
+      "status": "ACTIVE",
+      "source": "IMD + State EOC",
+      "updated_at": "2026-09-02T13:12:00+05:30",
+      "zones": [
+        {
+          "id": "SK-GAN",
+          "name": "Gangtok",
+          "adminLevel": "District",
+          "lat": 27.33,
+          "lon": 88.61,
+          "severity": "high",
+          "priority": 73,
+          "population": 68000,
+          "missing": 23,
+          "rescued": 311,
+          "critical": 9,
+          "teams": 3,
+          "needs": {
+            "food": {
+              "pct": 52,
+              "required": 11000,
+              "available": 5720,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 61,
+              "required": 38000,
+              "available": 23180,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 42,
+              "required": 1800,
+              "available": 756,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "2h 26m ago",
+          "road": "Partial",
+          "brief": "Multiple slope failures have disrupted road connectivity and slowed relief movement."
+        },
+        {
+          "id": "SK-NAM",
+          "name": "Namchi",
+          "adminLevel": "District",
+          "lat": 27.17,
+          "lon": 88.36,
+          "severity": "critical",
+          "priority": 86,
+          "population": 49000,
+          "missing": 38,
+          "rescued": 226,
+          "critical": 14,
+          "teams": 4,
+          "needs": {
+            "food": {
+              "pct": 29,
+              "required": 9000,
+              "available": 2610,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 34,
+              "required": 29000,
+              "available": 9860,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 19,
+              "required": 1600,
+              "available": 304,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "4h 11m ago",
+          "road": "Blocked",
+          "brief": "Critical road disruption and isolated settlements are creating urgent medical and food needs."
+        },
+        {
+          "id": "SK-PAK",
+          "name": "Pakyong",
+          "adminLevel": "District",
+          "lat": 27.23,
+          "lon": 88.75,
+          "severity": "moderate",
+          "priority": 49,
+          "population": 41000,
+          "missing": 9,
+          "rescued": 143,
+          "critical": 4,
+          "teams": 2,
+          "needs": {
+            "food": {
+              "pct": 73,
+              "required": 7000,
+              "available": 5110,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 79,
+              "required": 22000,
+              "available": 17380,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 68,
+              "required": 1100,
+              "available": 748,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "2h 58m ago",
+          "road": "Partial",
+          "brief": "Access remains constrained but supply coverage is adequate."
+        }
+      ],
+      "people": [
+        {
+          "id": "SK-2001",
+          "name": "Tashi Lepcha",
+          "age": 42,
+          "sex": "M",
+          "status": "missing",
+          "zone": "SK-NAM",
+          "last_seen": "07:30",
+          "needs": [
+            "Unknown"
+          ],
+          "logged_at": "08:00"
+        },
+        {
+          "id": "SK-2002",
+          "name": "Pema Bhutia",
+          "age": 64,
+          "sex": "F",
+          "status": "critical",
+          "zone": "SK-NAM",
+          "last_seen": "09:15",
+          "needs": [
+            "Blood pressure medication"
+          ],
+          "logged_at": "09:20"
+        },
+        {
+          "id": "SK-2003",
+          "name": "Sonam Rai",
+          "age": 19,
+          "sex": "M",
+          "status": "rescued",
+          "zone": "SK-GAN",
+          "last_seen": "10:40",
+          "needs": [
+            "Shelter"
+          ],
+          "logged_at": "10:45"
+        },
+        {
+          "id": "SK-2004",
+          "name": "Maya Tamang",
+          "age": 36,
+          "sex": "F",
+          "status": "missing",
+          "zone": "SK-GAN",
+          "last_seen": "11:20",
+          "needs": [
+            "Food"
+          ],
+          "logged_at": "11:30"
+        }
+      ],
+      "alerts": [
+        {
+          "time": "13:12",
+          "type": "critical",
+          "source": "FIELD",
+          "text": "Namchi access route blocked after fresh slope failure."
+        },
+        {
+          "time": "12:55",
+          "type": "success",
+          "source": "FIELD",
+          "text": "Sonam Rai verified rescued at Gangtok shelter."
+        },
+        {
+          "time": "12:30",
+          "type": "warning",
+          "source": "FIELD",
+          "text": "Maya Tamang reported missing in Gangtok zone."
+        }
+      ],
+      "teams": [
+        {
+          "name": "NDRF Echo",
+          "status": "deployed"
+        },
+        {
+          "name": "SDRF Sikkim-1",
+          "status": "deployed"
+        },
+        {
+          "name": "Army Relief-2",
+          "status": "standby"
+        }
+      ],
+      "resources": [
+        {
+          "name": "Drinking Water",
+          "stock": 80000,
+          "reserved": 31000,
+          "unit": "L"
+        },
+        {
+          "name": "Food Packets",
+          "stock": 28000,
+          "reserved": 12000,
+          "unit": "packets"
+        },
+        {
+          "name": "Medical Kits",
+          "stock": 4200,
+          "reserved": 1900,
+          "unit": "kits"
+        },
+        {
+          "name": "ORS",
+          "stock": 6000,
+          "reserved": 1800,
+          "unit": "sachets"
+        },
+        {
+          "name": "Blankets",
+          "stock": 9000,
+          "reserved": 3400,
+          "unit": "units"
+        },
+        {
+          "name": "Oxygen Cylinders",
+          "stock": 190,
+          "reserved": 80,
+          "unit": "cylinders"
+        }
+      ],
+      "adminSource": "LGD + Census administrative geography"
+    },
+    {
+      "id": "op-nepal-flood",
+      "name": "Terai Flood Response",
+      "disasterType": "Flood",
+      "hazard": "Monsoon river flooding",
+      "country": "Nepal",
+      "state": "National / Terai",
+      "authority": "NEOC / Local EOC",
+      "status": "ACTIVE",
+      "source": "DHM + NEOC",
+      "updated_at": "2026-09-02T13:08:00+05:45",
+      "zones": [
+        {
+          "id": "NP-MOR",
+          "name": "Morang",
+          "adminLevel": "District",
+          "lat": 26.49,
+          "lon": 87.28,
+          "severity": "critical",
+          "priority": 90,
+          "population": 98000,
+          "missing": 64,
+          "rescued": 702,
+          "critical": 20,
+          "teams": 5,
+          "needs": {
+            "food": {
+              "pct": 21,
+              "required": 20000,
+              "available": 4200,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 18,
+              "required": 70000,
+              "available": 12600,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 13,
+              "required": 3200,
+              "available": 416,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "2h 03m ago",
+          "road": "Partial",
+          "brief": "Widespread inundation is affecting settlements and placing heavy demand on water and medical supplies."
+        },
+        {
+          "id": "NP-SUN",
+          "name": "Sunsari",
+          "adminLevel": "District",
+          "lat": 26.66,
+          "lon": 87.14,
+          "severity": "high",
+          "priority": 78,
+          "population": 88000,
+          "missing": 39,
+          "rescued": 531,
+          "critical": 14,
+          "teams": 4,
+          "needs": {
+            "food": {
+              "pct": 48,
+              "required": 17000,
+              "available": 8160,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 42,
+              "required": 62000,
+              "available": 26040,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 37,
+              "required": 2900,
+              "available": 1073,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "2h 42m ago",
+          "road": "Partial",
+          "brief": "Flooded transport corridors are delaying replenishment to shelters."
+        },
+        {
+          "id": "NP-JHA",
+          "name": "Jhapa",
+          "adminLevel": "District",
+          "lat": 26.55,
+          "lon": 87.88,
+          "severity": "moderate",
+          "priority": 55,
+          "population": 76000,
+          "missing": 15,
+          "rescued": 340,
+          "critical": 6,
+          "teams": 3,
+          "needs": {
+            "food": {
+              "pct": 69,
+              "required": 15000,
+              "available": 10350,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 64,
+              "required": 54000,
+              "available": 34560,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 59,
+              "required": 2500,
+              "available": 1475,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "3h 08m ago",
+          "road": "Open",
+          "brief": "Shelter demand is elevated but major supply corridors remain open."
+        },
+        {
+          "id": "NP-SAP",
+          "name": "Saptari",
+          "adminLevel": "District",
+          "lat": 26.63,
+          "lon": 86.75,
+          "severity": "low",
+          "priority": 31,
+          "population": 67000,
+          "missing": 8,
+          "rescued": 210,
+          "critical": 3,
+          "teams": 2,
+          "needs": {
+            "food": {
+              "pct": 87,
+              "required": 12000,
+              "available": 10440,
+              "unit": "packets"
+            },
+            "water": {
+              "pct": 84,
+              "required": 48000,
+              "available": 40320,
+              "unit": "L"
+            },
+            "medicine": {
+              "pct": 90,
+              "required": 1900,
+              "available": 1710,
+              "unit": "kits"
+            }
+          },
+          "lastDelivery": "4h 20m ago",
+          "road": "Open",
+          "brief": "Lower operational pressure; continue monitoring river conditions."
+        }
+      ],
+      "people": [
+        {
+          "id": "NP-3001",
+          "name": "Sita Yadav",
+          "age": 29,
+          "sex": "F",
+          "status": "missing",
+          "zone": "NP-MOR",
+          "last_seen": "07:42",
+          "needs": [
+            "Food",
+            "Water"
+          ],
+          "logged_at": "08:00"
+        },
+        {
+          "id": "NP-3002",
+          "name": "Ramesh Mandal",
+          "age": 71,
+          "sex": "M",
+          "status": "critical",
+          "zone": "NP-MOR",
+          "last_seen": "09:20",
+          "needs": [
+            "Diabetes medication"
+          ],
+          "logged_at": "09:30"
+        },
+        {
+          "id": "NP-3003",
+          "name": "Asha Rai",
+          "age": 26,
+          "sex": "F",
+          "status": "rescued",
+          "zone": "NP-SUN",
+          "last_seen": "10:35",
+          "needs": [
+            "Shelter"
+          ],
+          "logged_at": "10:40"
+        },
+        {
+          "id": "NP-3004",
+          "name": "Dilip Thapa",
+          "age": 48,
+          "sex": "M",
+          "status": "missing",
+          "zone": "NP-JHA",
+          "last_seen": "11:18",
+          "needs": [
+            "Unknown"
+          ],
+          "logged_at": "11:25"
+        }
+      ],
+      "alerts": [
+        {
+          "time": "13:08",
+          "type": "critical",
+          "source": "FIELD",
+          "text": "Morang water shortage crossed critical threshold."
+        },
+        {
+          "time": "12:50",
+          "type": "success",
+          "source": "FIELD",
+          "text": "Asha Rai verified rescued at Sunsari relief centre."
+        },
+        {
+          "time": "12:21",
+          "type": "warning",
+          "source": "FIELD",
+          "text": "Dilip Thapa reported missing in Jhapa."
+        }
+      ],
+      "teams": [
+        {
+          "name": "NEOC Rescue-1",
+          "status": "deployed"
+        },
+        {
+          "name": "Nepal Police-3",
+          "status": "deployed"
+        },
+        {
+          "name": "Armed Police-2",
+          "status": "standby"
+        }
+      ],
+      "resources": [
+        {
+          "name": "Drinking Water",
+          "stock": 120000,
+          "reserved": 52000,
+          "unit": "L"
+        },
+        {
+          "name": "Food Packets",
+          "stock": 50000,
+          "reserved": 22000,
+          "unit": "packets"
+        },
+        {
+          "name": "Medical Kits",
+          "stock": 7000,
+          "reserved": 3000,
+          "unit": "kits"
+        },
+        {
+          "name": "ORS",
+          "stock": 11000,
+          "reserved": 4200,
+          "unit": "sachets"
+        },
+        {
+          "name": "Blankets",
+          "stock": 13000,
+          "reserved": 5100,
+          "unit": "units"
+        },
+        {
+          "name": "Oxygen Cylinders",
+          "stock": 320,
+          "reserved": 150,
+          "unit": "cylinders"
+        }
+      ],
+      "adminSource": "LGD + Census administrative geography"
+    }
+  ]
+}

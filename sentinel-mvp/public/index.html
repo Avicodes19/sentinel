@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f1326" />
+  <title>SENTINEL — Disaster Response Command</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="shield">⬡</span><span>SENTINEL</span></div>
+      <button class="operation-button" id="operationButton"><span>OP:</span> <b id="opName">CYCLONE RESPONSE</b><span>·</span><b id="opState">ODISHA · CYCLONE</b><span>·</span><b id="opAuthority">STATE EOC / NDMA</b><span class="switch-caret">▾</span></button><div class="operation-menu" id="operationMenu"><div id="operationSwitcher"></div></div>
+      <div class="top-status"><span class="live-dot"></span> LIVE <span id="clock">--:--:-- IST</span><button class="alert-button" id="alertsButton">♧ <span id="alertCount">6</span> ALERTS</button></div>
+    </header>
+
+    <aside class="sidebar">
+      <nav>
+        <button class="nav-item active" data-view="command"><span>⌁</span> Command Center</button>
+        <button class="nav-item" data-view="map"><span>◎</span> Operations Map</button>
+        <button class="nav-item" data-view="people"><span>♙</span> Persons Registry <em id="peopleBadge">7</em></button>
+        <button class="nav-item" data-view="resources"><span>⬡</span> Resources</button>
+        <button class="nav-item" data-view="alerts"><span>♧</span> Alerts <em id="alertsBadge">6</em></button>
+      </nav>
+      <div class="operation-panel" id="operationPanel"></div>
+      <div class="teams-block">
+        <div class="section-label">RESPONSE TEAMS</div>
+        <div id="teamList"></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section id="view-command" class="view active"></section>
+      <section id="view-map" class="view"></section>
+      <section id="view-people" class="view"></section>
+      <section id="view-resources" class="view"></section>
+      <section id="view-alerts" class="view"></section>
+    </main>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toast-root"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
