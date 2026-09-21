@@ -180,11 +180,15 @@ async function buildState(id) {
     },
   };
 }
-async function notifyHub(dispatch, event = "resource.updated") {
-  const hubUrl = process.env.LOGISTICS_HUB_URL;
+async function notifyHub(dispatch, event = "resource.updated", hostHeader = null) {
+  let hubUrl = process.env.LOGISTICS_HUB_URL;
+  if (!hubUrl && hostHeader) {
+    const isLocal =
+      hostHeader.includes("localhost") || hostHeader.includes("127.0.0.1");
+    hubUrl = `${isLocal ? "http" : "https"}://${hostHeader}/mock`;
+  }
 
   if (!hubUrl) {
-    console.warn("LOGISTICS_HUB_URL is not configured.");
     return false;
   }
 
@@ -350,11 +354,19 @@ async function handle(req, res) {
         console.warn(e.message);
       }
     }
-    // Optional partner webhook: set SUPPLIER_WEBHOOK_URL in .env to notify an external logistics system.
+    // Optional partner webhook: defaults to co-deployed /mock endpoint if not explicitly overridden.
     let supplierNotified = false;
-    if (process.env.SUPPLIER_WEBHOOK_URL) {
+    let supplierWebhook = process.env.SUPPLIER_WEBHOOK_URL;
+    if (!supplierWebhook && req.headers.host) {
+      const isLocal =
+        req.headers.host.includes("localhost") ||
+        req.headers.host.includes("127.0.0.1");
+      supplierWebhook = `${isLocal ? "http" : "https"}://${req.headers.host}/mock/api/resource-request`;
+    }
+
+    if (supplierWebhook) {
       try {
-        const r = await fetch(process.env.SUPPLIER_WEBHOOK_URL, {
+        const r = await fetch(supplierWebhook, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -466,7 +478,7 @@ async function handle(req, res) {
 
     const hubUpdated =
       b.source !== "logistics-hub"
-        ? await notifyHub(d, "resource.updated")
+        ? await notifyHub(d, "resource.updated", req.headers.host)
         : false;
 
     return json(res, 200, {

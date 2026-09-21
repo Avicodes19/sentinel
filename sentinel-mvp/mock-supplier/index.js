@@ -192,6 +192,17 @@ function html(res, status, content) {
 }
 
 async function readBody(req) {
+  if (req.body) {
+    if (typeof req.body === "object") return req.body;
+    if (typeof req.body === "string") {
+      try {
+        return JSON.parse(req.body);
+      } catch {
+        return {};
+      }
+    }
+  }
+
   let body = "";
 
   for await (const chunk of req) {
@@ -286,10 +297,13 @@ function subscribe(operationId, res) {
 |--------------------------------------------------------------------------
 */
 
-async function updateSentinel(dispatch, status, extra = {}) {
+async function updateSentinel(dispatch, status, extra = {}, sentinelBase = null) {
+  const base =
+    sentinelBase || process.env.SENTINEL_URL || "http://localhost:3000";
+
   try {
     const response = await fetch(
-      `${SENTINEL_URL}/api/relief/dispatch/${dispatch.id}/status`,
+      `${base}/api/relief/dispatch/${dispatch.id}/status`,
       {
         method: "POST",
         headers: {
@@ -469,7 +483,7 @@ function updateRequestStatus(id, payload) {
 |--------------------------------------------------------------------------
 */
 
-function renderHub(operation) {
+function renderHub(operation, basePath = "") {
   const operationRequests = [...requests.values()]
     .filter((r) => r.operationId === operation.id)
     .sort((a, b) => new Date(b.requestedAt) - new Date(a.requestedAt));
@@ -799,22 +813,26 @@ button:disabled {
   <div class="top">
 
     <div class="brand">
-      <div class="logo">S</div>
-
-      <div>
-        <div class="eyebrow">
-          SENTINEL REGIONAL LOGISTICS
+      <a href="${basePath || '/'}" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:14px;">
+        <div class="logo">S</div>
+        <div>
+          <div class="eyebrow">
+            SENTINEL REGIONAL LOGISTICS
+          </div>
+          <h1>
+            ${escapeHtml(operation.region)}
+            Logistics Hub
+          </h1>
         </div>
-
-        <h1>
-          ${escapeHtml(operation.region)}
-          Logistics Hub
-        </h1>
-      </div>
+      </a>
     </div>
 
-    <div class="live">
-      ● LIVE CONNECTION
+    <div style="display:flex;gap:16px;align-items:center;">
+      <a href="${basePath || '/'}" style="color:#7f8a96;text-decoration:none;font-size:12px;font-weight:700;">← All Hubs</a>
+      <a href="/" style="color:#82b7ff;text-decoration:none;font-size:12px;font-weight:700;">Command Center ↗</a>
+      <div class="live">
+        ● LIVE CONNECTION
+      </div>
     </div>
 
   </div>
@@ -916,12 +934,13 @@ button:disabled {
 
 <script>
 
+const basePath = ${JSON.stringify(basePath)};
 const operationId =
   ${JSON.stringify(operation.id)};
 
 const eventSource =
   new EventSource(
-    "/api/events?operation=" +
+    basePath + "/api/events?operation=" +
     encodeURIComponent(operationId)
   );
 
@@ -978,7 +997,7 @@ async function refresh() {
 
   const response =
     await fetch(
-      "/api/requests?operation=" +
+      basePath + "/api/requests?operation=" +
       encodeURIComponent(operationId)
     );
 
@@ -1104,7 +1123,7 @@ async function advance(id, status) {
 
   const response =
     await fetch(
-      "/api/request/" +
+      basePath + "/api/request/" +
       encodeURIComponent(id) +
       "/status",
       {
@@ -1135,6 +1154,9 @@ async function advance(id, status) {
 
   refresh();
 }
+
+refresh();
+setInterval(refresh, 4000);
 
 function escapeHtml(value) {
 
@@ -1198,11 +1220,22 @@ function nextAction(request) {
 |--------------------------------------------------------------------------
 */
 
-const server = http.createServer(async (req, res) => {
+async function handle(req, res) {
   try {
-    const url = new URL(req.url, `http://${req.headers.host}`);
+    const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
 
-    const pathname = url.pathname;
+    let pathname = url.pathname;
+    let basePath = "";
+
+    if (pathname === "/mock" || pathname.startsWith("/mock/")) {
+      basePath = "/mock";
+      pathname = pathname.slice(5) || "/";
+    }
+
+    const host = req.headers.host || "localhost:3000";
+    const sentinelBase =
+      process.env.SENTINEL_URL ||
+      (host.includes("localhost") ? `http://${host}` : `https://${host}`);
 
     /*
      * CORS
@@ -1260,7 +1293,7 @@ const server = http.createServer(async (req, res) => {
         hub: {
           operationId: operation.id,
           region: operation.region,
-          url: `/hub/${encodeURIComponent(operation.id)}`,
+          url: `${basePath}/hub/${encodeURIComponent(operation.id)}`,
         },
       });
     }
@@ -1366,7 +1399,7 @@ const server = http.createServer(async (req, res) => {
       return json(res, 200, {
         operations: [...operations.values()].map((operation) => ({
           ...operation,
-          url: `/hub/${encodeURIComponent(operation.id)}`,
+          url: `${basePath}/hub/${encodeURIComponent(operation.id)}`,
         })),
       });
     }
@@ -1419,6 +1452,7 @@ const server = http.createServer(async (req, res) => {
         updated,
         updated.status,
         body,
+        sentinelBase,
       );
 
       /*
@@ -1462,7 +1496,7 @@ const server = http.createServer(async (req, res) => {
         );
       }
 
-      return html(res, 200, renderHub(operation));
+      return html(res, 200, renderHub(operation, basePath));
     }
 
     /*
@@ -1474,7 +1508,7 @@ const server = http.createServer(async (req, res) => {
         .map(
           (operation) => `
               <a
-                href="/hub/${encodeURIComponent(operation.id)}"
+                href="${basePath}/hub/${encodeURIComponent(operation.id)}"
                 style="
                   display:block;
                   padding:22px;
@@ -1555,13 +1589,33 @@ a:hover {
 
 <div
   style="
-    color:#7f8a96;
-    font-size:11px;
-    letter-spacing:2px;
-    font-weight:800;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:24px;
   "
 >
-SENTINEL
+  <div
+    style="
+      color:#7f8a96;
+      font-size:11px;
+      letter-spacing:2px;
+      font-weight:800;
+    "
+  >
+    SENTINEL REGIONAL LOGISTICS
+  </div>
+  <a
+    href="/"
+    style="
+      color:#82b7ff;
+      text-decoration:none;
+      font-size:13px;
+      font-weight:700;
+    "
+  >
+    ← Open Sentinel Command Center
+  </a>
 </div>
 
 <h1>
@@ -1592,25 +1646,39 @@ ${cards}
       error: error.message,
     });
   }
-});
+}
 
-server.listen(PORT, "0.0.0.0", () => {
-  console.log("");
-  console.log("╔══════════════════════════════════════════════╗");
-  console.log("║      SENTINEL REGIONAL LOGISTICS HUB        ║");
-  console.log("╚══════════════════════════════════════════════╝");
-  console.log("");
-  console.log(`Hub directory: http://localhost:${PORT}`);
-  console.log(`Webhook:       http://localhost:${PORT}/api/resource-request`);
-  console.log(`Sentinel:      ${SENTINEL_URL}`);
-  console.log("");
-  console.log("Regional hubs:");
+export async function handler(req, res) {
+  return handle(req, res);
+}
 
-  for (const operation of operations.values()) {
-    console.log(
-      `  ${operation.region}: http://localhost:${PORT}/hub/${operation.id}`,
-    );
-  }
+export default handler;
+export { handle, json, html, operations, requests };
 
-  console.log("");
-});
+const isMain =
+  process.argv[1] &&
+  fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+
+if (isMain) {
+  const server = http.createServer(handle);
+  server.listen(PORT, "0.0.0.0", () => {
+    console.log("");
+    console.log("╔══════════════════════════════════════════════╗");
+    console.log("║      SENTINEL REGIONAL LOGISTICS HUB        ║");
+    console.log("╚══════════════════════════════════════════════╝");
+    console.log("");
+    console.log(`Hub directory: http://localhost:${PORT}`);
+    console.log(`Webhook:       http://localhost:${PORT}/api/resource-request`);
+    console.log(`Sentinel:      ${SENTINEL_URL}`);
+    console.log("");
+    console.log("Regional hubs:");
+
+    for (const operation of operations.values()) {
+      console.log(
+        `  ${operation.region}: http://localhost:${PORT}/hub/${operation.id}`,
+      );
+    }
+
+    console.log("");
+  });
+}

@@ -5,10 +5,21 @@
     {
       "source": "/api/:path*",
       "destination": "/api/index.js"
+    },
+    {
+      "source": "/mock",
+      "destination": "/api/mock.js"
+    },
+    {
+      "source": "/mock/:path*",
+      "destination": "/api/mock.js"
     }
   ],
   "functions": {
     "api/index.js": {
+      "includeFiles": "public/**"
+    },
+    "api/mock.js": {
       "includeFiles": "public/**"
     }
   }
