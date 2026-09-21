@@ -21,9 +21,24 @@ function loadEnv() {
 }
 loadEnv();
 
-const seed = JSON.parse(
-  fs.readFileSync(path.join(publicDir, "demo-data.json"), "utf8"),
-);
+function loadSeed() {
+  const possiblePaths = [
+    path.join(publicDir, "demo-data.json"),
+    path.join(process.cwd(), "public", "demo-data.json"),
+    path.join(root, "demo-data.json"),
+    path.join(process.cwd(), "demo-data.json"),
+  ];
+  for (const p of possiblePaths) {
+    try {
+      if (fs.existsSync(p)) {
+        return JSON.parse(fs.readFileSync(p, "utf8"));
+      }
+    } catch {}
+  }
+  return { operations: [], currentOperationId: "" };
+}
+const seed = loadSeed();
+
 const memory = {
   operations: structuredClone(seed.operations),
   currentOperationId: seed.currentOperationId,
@@ -47,6 +62,16 @@ function text(res, status, data, type = "text/plain") {
   res.end(data);
 }
 async function body(req) {
+  if (req.body) {
+    if (typeof req.body === "object") return req.body;
+    if (typeof req.body === "string") {
+      try {
+        return JSON.parse(req.body);
+      } catch {
+        return {};
+      }
+    }
+  }
   let s = "";
   for await (const c of req) s += c;
   return s ? JSON.parse(s) : {};
@@ -395,16 +420,6 @@ async function handle(req, res) {
     if (b.supplier) d.supplier = b.supplier;
     if (b.eta) d.eta = b.eta;
 
-    const hubUpdated =
-      b.source !== "logistics-hub"
-        ? await notifyHub(d, "resource.updated")
-        : false;
-    return json(res, 200, {
-      ok: true,
-      dispatch: d,
-      alerts: op.alerts.slice(0, 12),
-      hubUpdated,
-    });
     const op = currentOperation(d.operationId);
     const alert = {
       time: time(op.country === "Nepal" ? "Asia/Kathmandu" : "Asia/Kolkata"),
@@ -448,10 +463,17 @@ async function handle(req, res) {
         console.warn(e.message);
       }
     }
+
+    const hubUpdated =
+      b.source !== "logistics-hub"
+        ? await notifyHub(d, "resource.updated")
+        : false;
+
     return json(res, 200, {
       ok: true,
       dispatch: d,
       alerts: op.alerts.slice(0, 12),
+      hubUpdated,
     });
   }
   if (req.method === "GET" && p === "/api/integrations/imd") {
@@ -540,15 +562,33 @@ async function handle(req, res) {
   }
   return text(res, 404, "Not found");
 }
-http
-  .createServer((req, res) =>
-    handle(req, res).catch((e) => {
-      console.error(e);
-      json(res, 500, { error: e.message });
-    }),
-  )
-  .listen(port, () =>
-    console.log(
-      `Sentinel MVP: http://localhost:${port} | Supabase: ${hasSupabase ? "configured" : "demo mode"}`,
-    ),
-  );
+export async function handler(req, res) {
+  try {
+    return await handle(req, res);
+  } catch (e) {
+    console.error(e);
+    json(res, 500, { error: e.message });
+  }
+}
+
+export default handler;
+export { handle, json, text };
+
+const isMain =
+  process.argv[1] &&
+  fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+
+if (isMain) {
+  http
+    .createServer((req, res) =>
+      handle(req, res).catch((e) => {
+        console.error(e);
+        json(res, 500, { error: e.message });
+      }),
+    )
+    .listen(port, () =>
+      console.log(
+        `Sentinel MVP: http://localhost:${port} | Supabase: ${hasSupabase ? "configured" : "demo mode"}`,
+      ),
+    );
+}
